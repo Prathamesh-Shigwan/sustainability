@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sustainability — Hitshi Industries</title>
+<meta name="description" content="At Hitshi Industries, sustainability is built into every product we make — recyclable PP jars, BPA-free food containers, 50-year PVC pipe fittings, and lightweight bike plastic parts." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  --c-ink:  #001E1A;
+  --c-deep: #2D614A;
+  --c-mid:  #4A8F73;
+  --c-soft: #9CC7B0;
+  --c-bg:   #F5F5F5;
+  --c-muted:#4b5e58;
+  --tint-1: #EAF3EE;
+  --tint-2: #D7E8DD;
+  --grad-hero: linear-gradient(135deg,#001E1A 0%,#08322A 40%,#2D614A 100%);
+  --ease-soft:   cubic-bezier(.22,.61,.36,1);
+  --ease-spring: cubic-bezier(.34,1.56,.64,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;background:#fff;color:var(--c-ink);overflow-x:hidden;line-height:1.75;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none}
+.container{max-width:1280px;margin:0 auto;padding:0 32px}
+h1{font-size:clamp(2.6rem,5.5vw,4.6rem);font-weight:800;line-height:1.05;letter-spacing:-0.02em}
+h2{font-size:clamp(1.8rem,3vw,2.7rem);font-weight:800;line-height:1.15;letter-spacing:-0.01em}
+h3{font-size:1.2rem;font-weight:700;line-height:1.3}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--c-deep);font-weight:700}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--c-mid)}
+.eyebrow.light{color:var(--c-soft)}.eyebrow.light::before{background:var(--c-soft)}
+.accent{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--c-deep);font-weight:500}
+.accent-light{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--c-soft);font-weight:500}
+
+/* ========== TOP BAR ========== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:102;background:var(--c-ink);height:38px;display:flex;align-items:center}
+.topbar .tb-inner{display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 32px}
+.topbar .tb-left{display:flex;align-items:center;gap:22px;font-size:12px;font-weight:600}
+.topbar .tb-left a{color:rgba(156,199,176,.85);display:inline-flex;align-items:center;gap:6px;transition:color .3s}
+.topbar .tb-left a:hover{color:var(--c-soft)}
+.topbar .tb-left .sep{width:1px;height:14px;background:rgba(156,199,176,.25)}
+.topbar .tb-right{display:flex;align-items:center}
+.topbar .tb-link{display:inline-flex;align-items:center;gap:7px;padding:0 18px;height:38px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(156,199,176,.85);border-left:1px solid rgba(156,199,176,.15);transition:background .3s,color .3s;white-space:nowrap}
+.topbar .tb-link:first-child{border-left:none}
+.topbar .tb-link:hover{background:rgba(74,143,115,.18);color:var(--c-soft)}
+.topbar .tb-link.highlight{background:var(--c-deep);color:#fff}
+.topbar .tb-link.highlight:hover{background:var(--c-mid)}
+@media(max-width:700px){.topbar .tb-left{display:none}.topbar .tb-inner{justify-content:flex-end}}
+
+/* SCROLL PROGRESS */
+.scroll-progress{position:fixed;top:38px;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--c-mid),var(--c-soft),var(--c-mid));background-size:200% 100%;z-index:1000;animation:pgShine 3s linear infinite;box-shadow:0 0 12px rgba(74,143,115,.5)}
+@keyframes pgShine{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+
+/* ========== NAV ========== */
+.nav{position:fixed;top:38px;left:0;right:0;z-index:100;padding:14px 0;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 4px 20px rgba(0,30,26,.08);transition:all .4s var(--ease-soft)}
+.nav-row{display:flex;align-items:center;justify-content:space-between}
+.brand img{height:46px;width:auto}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:var(--c-ink);font-size:14px;font-weight:600;position:relative;padding:6px 0;transition:color .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--c-deep);transition:width .4s var(--ease-soft)}
+.nav-links a:hover{color:var(--c-deep)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-links a.active{color:var(--c-deep)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:100px;cursor:pointer;position:relative;overflow:hidden;transition:all .4s var(--ease-soft);border:1.5px solid transparent}
+.btn .arrow{transition:transform .3s var(--ease-soft)}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transition:left .6s var(--ease-soft)}
+.btn:hover::before{left:100%}
+.btn-primary{background:var(--c-deep);color:#fff;box-shadow:0 6px 18px rgba(45,97,74,.3)}
+.btn-primary:hover{background:var(--c-mid);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+@media(max-width:900px){.nav-links{display:none}}
+.nav-dropdown{position:relative}
+.nav-dropdown>a{display:flex;align-items:center;gap:6px}
+.dropdown-arrow{font-size:10px;transition:transform .3s var(--ease-soft)}
+.nav-dropdown:hover .dropdown-arrow{transform:rotate(180deg)}
+.dropdown-menu{position:absolute;top:100%;left:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-radius:12px;list-style:none;min-width:240px;padding:12px 0;margin-top:12px;box-shadow:0 12px 40px rgba(0,30,26,.25);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .3s var(--ease-soft),visibility .3s,transform .3s var(--ease-soft);z-index:1001}
+.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown-menu li a{display:block;padding:12px 20px;color:var(--c-ink);font-size:13px;font-weight:600;transition:all .3s var(--ease-soft);position:relative}
+.dropdown-menu li a::after{display:none}
+.dropdown-menu li a::before{content:"→";position:absolute;left:8px;opacity:0;transform:translateX(-8px);transition:all .3s var(--ease-soft)}
+.dropdown-menu li a:hover{background:var(--c-bg);color:var(--c-deep);padding-left:28px}
+.dropdown-menu li a:hover::before{opacity:1;transform:translateX(0)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.sustain-hero{margin-top:116px;padding:120px 0 110px;position:relative;overflow:hidden;background:linear-gradient(135deg,#001E1A 0%,#0A3D2E 45%,#1A6B50 100%);color:#fff;border-radius:0 0 48px 48px}
+.sustain-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(156,199,176,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(156,199,176,.07) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%)}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none}
+.blob.b1{width:520px;height:520px;background:radial-gradient(circle,rgba(74,143,115,.5),transparent 70%);top:-200px;left:-160px;animation:bm1 20s ease-in-out infinite}
+.blob.b2{width:440px;height:440px;background:radial-gradient(circle,rgba(26,107,80,.6),transparent 70%);bottom:-200px;right:-130px;animation:bm2 24s ease-in-out infinite}
+@keyframes bm1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(100px,60px) scale(1.15)}}
+@keyframes bm2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-80px,-50px) scale(1.2)}}
+.particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.particles span{position:absolute;width:4px;height:4px;background:var(--c-soft);border-radius:50%;opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.6}90%{opacity:.6}100%{transform:translateY(-10vh) scale(1.5);opacity:0}}
+.sustain-hero .inner{position:relative;z-index:2;text-align:center;max-width:860px;margin:0 auto}
+.hero-icon{display:inline-flex;align-items:center;justify-content:center;width:80px;height:80px;border-radius:50%;background:rgba(156,199,176,.15);border:1.5px solid rgba(156,199,176,.4);margin:0 auto 24px;animation:leafPulse 4s ease-in-out infinite}
+@keyframes leafPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(156,199,176,.3)}50%{transform:scale(1.06);box-shadow:0 0 0 16px rgba(156,199,176,0)}}
+.sustain-hero h1{margin:14px 0 22px}
+.sustain-hero h1 .word{display:inline-block;opacity:0;transform:translateY(40px);animation:wIn .9s var(--ease-soft) forwards}
+.sustain-hero h1 .word.gw{background:linear-gradient(135deg,var(--c-soft),#fff,#a8d8c0);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;background-size:200% 100%;animation:wIn .9s var(--ease-soft) forwards,gradS 6s ease-in-out infinite}
+@keyframes wIn{to{opacity:1;transform:translateY(0)}}
+@keyframes gradS{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.sustain-hero p.lead{color:rgba(255,255,255,.85);font-size:1.12rem;max-width:680px;margin:0 auto 40px;opacity:0;animation:fIn 1s ease 1.2s forwards}
+@keyframes fIn{to{opacity:1}}
+.hero-pills{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fIn 1s ease 1.5s forwards}
+.hero-pill{display:inline-flex;align-items:center;gap:10px;padding:10px 22px;background:rgba(255,255,255,.08);border:1px solid rgba(156,199,176,.4);backdrop-filter:blur(12px);border-radius:100px;font-size:12px;color:var(--c-soft);font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.hero-pill .num{color:#fff;font-size:1rem;font-weight:800}
+
+/* ============================================================
+   INTRO NARRATIVE
+   ============================================================ */
+.intro-section{padding:100px 0 80px;position:relative}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:1000px){.intro-grid{grid-template-columns:1fr;gap:50px}}
+.intro-body .eyebrow{margin-bottom:16px}
+.intro-body h2{margin-bottom:24px}
+.intro-body p{color:var(--c-muted);font-size:1.02rem;margin-bottom:18px}
+.intro-body p:last-of-type{margin-bottom:0}
+.intro-body strong{color:var(--c-deep);font-weight:700}
+/* large quote pull */
+.intro-quote{background:var(--grad-hero);border-radius:28px;padding:50px 44px;color:#fff;position:relative;overflow:hidden}
+.intro-quote::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(74,143,115,.45),transparent 55%);pointer-events:none}
+.intro-quote .q-mark{font-family:'Cormorant Garamond',serif;font-size:8rem;line-height:1;color:rgba(156,199,176,.3);position:absolute;top:-10px;left:20px;pointer-events:none}
+.intro-quote blockquote{position:relative;z-index:2}
+.intro-quote blockquote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6rem;line-height:1.5;color:#fff;margin-bottom:28px;font-weight:500}
+.intro-quote blockquote cite{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--c-soft);font-style:normal;font-weight:700}
+.intro-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;position:relative;z-index:2}
+.intro-stat .sv{font-size:2rem;font-weight:800;color:#fff;line-height:1;display:inline-block}
+.intro-stat .sl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--c-soft);margin-top:6px;font-weight:700}
+
+/* ============================================================
+   COMMITMENT — 4 PILLARS
+   ============================================================ */
+.commitment-section{padding:100px 0;background:var(--c-bg);position:relative;overflow:hidden}
+.commitment-section::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(74,143,115,.04) 1px,transparent 1px);background-size:30px 30px;pointer-events:none}
+.commit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:1100px){.commit-grid{grid-template-columns:1fr 1fr;gap:20px}}
+@media(max-width:600px){.commit-grid{grid-template-columns:1fr}}
+.commit-card{background:#fff;border-radius:24px;padding:36px 28px;border:1.5px solid rgba(156,199,176,.35);position:relative;overflow:hidden;transition:all .5s var(--ease-soft)}
+.commit-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--c-mid),var(--c-soft));transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-soft)}
+.commit-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(0,30,26,.11);border-color:var(--c-mid)}
+.commit-card:hover::before{transform:scaleX(1)}
+.commit-num{font-size:3.5rem;font-weight:800;color:var(--tint-2);line-height:1;margin-bottom:12px;font-feature-settings:"tnum";transition:color .4s}
+.commit-card:hover .commit-num{color:var(--tint-2)}
+.commit-icon{width:56px;height:56px;border-radius:18px;background:var(--tint-1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:all .5s var(--ease-spring)}
+.commit-card:hover .commit-icon{background:var(--c-deep);transform:rotate(-8deg) scale(1.05)}
+.commit-card:hover .commit-icon svg{stroke:#fff}
+.commit-icon svg{color:var(--c-deep);transition:stroke .4s}
+.commit-card h3{font-size:1.1rem;margin-bottom:10px;color:var(--c-ink)}
+.commit-card p{font-size:.91rem;color:var(--c-muted);line-height:1.7}
+
+/* ============================================================
+   WHAT WE'RE DOING  — 3 big rows
+   ============================================================ */
+.doing-section{padding:110px 0}
+.doing-row{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;margin-bottom:100px}
+.doing-row:last-child{margin-bottom:0}
+.doing-row.rev .doing-img{order:2}
+.doing-row.rev .doing-body{order:1}
+@media(max-width:1000px){
+  .doing-row,.doing-row.rev{grid-template-columns:1fr;gap:44px}
+  .doing-row.rev .doing-img,.doing-row.rev .doing-body{order:initial}
+}
+/* image panel */
+.doing-img{position:relative}
+.d-main{border-radius:28px;overflow:hidden;position:relative;box-shadow:0 28px 70px rgba(0,30,26,.18);aspect-ratio:4/3.2}
+.d-main img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease-soft)}
+.d-main:hover img{transform:scale(1.05)}
+.d-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;color:rgba(255,255,255,.55);text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;pointer-events:none}
+.d-ph .pi{font-size:3.2rem;opacity:.55;line-height:1}
+.d-ph code{font-family:monospace;font-style:normal;font-size:.75rem;opacity:.7}
+.d-label{position:absolute;bottom:14px;left:14px;background:rgba(0,30,26,.88);color:var(--c-soft);padding:7px 15px;border-radius:100px;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;backdrop-filter:blur(8px);z-index:3}
+/* floating mini image */
+.d-float{position:absolute;width:42%;aspect-ratio:4/3;border-radius:18px;overflow:hidden;border:4px solid #fff;box-shadow:0 18px 50px rgba(0,30,26,.22);z-index:5;transition:transform .5s var(--ease-soft)}
+.d-float:hover{transform:translateY(-5px)}
+.d-float img{width:100%;height:100%;object-fit:cover}
+.d-float .d-ph{font-size:.75rem}
+.d-float .d-ph .pi{font-size:2rem}
+.d-float.br{bottom:-26px;right:-26px}
+.d-float.bl{bottom:-26px;left:-26px}
+/* deco ring */
+.d-ring{position:absolute;width:68px;height:68px;border:2px solid var(--c-soft);opacity:.5;border-radius:50%;pointer-events:none;animation:floatY 6s ease-in-out infinite}
+.d-ring.tl{top:-20px;left:-20px}
+.d-ring.tr{top:-20px;right:-20px}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+/* float badge */
+.d-badge{position:absolute;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:0 16px 40px rgba(0,30,26,.18);z-index:6;border:1px solid rgba(156,199,176,.4);animation:floatY 5s ease-in-out infinite}
+.d-badge.tr{top:-20px;right:-20px}
+.d-badge.tl{top:-20px;left:-20px}
+.d-badge .bv{font-size:1.6rem;font-weight:800;color:var(--c-deep);line-height:1}
+.d-badge .bl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-mid);font-weight:700;margin-top:4px}
+/* body */
+.doing-body .eyebrow{margin-bottom:16px}
+.doing-body h2{margin-bottom:22px}
+.doing-body p{color:var(--c-muted);font-size:.98rem;margin-bottom:16px}
+.doing-body p:last-of-type{margin-bottom:0}
+.doing-body strong{color:var(--c-deep);font-weight:700}
+.point-list{list-style:none;margin-top:26px;display:grid;gap:12px}
+.point-item{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;background:var(--c-bg);border-radius:14px;border-left:4px solid var(--c-mid);transition:transform .4s var(--ease-soft),border-color .4s;font-size:.93rem}
+.point-item:hover{transform:translateX(8px);border-left-color:var(--c-deep)}
+.p-ic{width:30px;height:30px;border-radius:50%;background:var(--c-deep);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;transition:transform .4s var(--ease-spring)}
+.point-item:hover .p-ic{transform:rotate(360deg) scale(1.1)}
+.point-text strong{color:var(--c-deep);font-weight:700}
+/* chip row */
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{padding:6px 14px;border-radius:100px;background:var(--tint-1);border:1.5px solid rgba(156,199,176,.5);color:var(--c-deep);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;transition:all .3s var(--ease-soft)}
+.chip:hover{background:var(--c-deep);color:#fff;border-color:var(--c-deep);transform:translateY(-2px)}
+
+/* ============================================================
+   CSR BAND
+   ============================================================ */
+.csr-section{background:var(--c-ink);padding:110px 0;position:relative;overflow:hidden}
+.csr-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(74,143,115,.25),transparent 45%),radial-gradient(circle at 80% 70%,rgba(156,199,176,.18),transparent 45%);pointer-events:none}
+.csr-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:center;position:relative}
+@media(max-width:1000px){.csr-grid{grid-template-columns:1fr;gap:50px}}
+.csr-body h2{color:#fff;margin:14px 0 22px}
+.csr-body p{color:rgba(255,255,255,.8);font-size:.98rem;margin-bottom:16px}
+.csr-body strong{color:var(--c-soft);font-weight:700}
+.csr-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+@media(max-width:600px){.csr-cards{grid-template-columns:1fr}}
+.csr-card{background:rgba(255,255,255,.06);border:1px solid rgba(156,199,176,.22);border-radius:18px;padding:22px 20px;transition:all .4s var(--ease-soft)}
+.csr-card:hover{background:rgba(255,255,255,.1);border-color:rgba(156,199,176,.4);transform:translateY(-4px)}
+.csr-card .cc-ic{font-size:1.6rem;margin-bottom:10px}
+.csr-card h4{color:#fff;font-size:.95rem;font-weight:700;margin-bottom:6px}
+.csr-card p{color:rgba(255,255,255,.65);font-size:.85rem;line-height:1.65}
+/* csr image */
+.csr-img-wrap{position:relative}
+.csr-main-img{border-radius:28px;overflow:hidden;aspect-ratio:4/5;position:relative;background:linear-gradient(135deg,#08322A,#2D614A);box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.csr-main-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease-soft)}
+.csr-main-img:hover img{transform:scale(1.05)}
+.csr-d-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;color:rgba(156,199,176,.55);text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;pointer-events:none}
+.csr-d-ph .pi{font-size:3rem}
+.csr-d-ph code{font-family:monospace;font-style:normal;font-size:.75rem;opacity:.7}
+.csr-d-label{position:absolute;bottom:14px;left:14px;background:rgba(0,30,26,.9);color:var(--c-soft);padding:7px 15px;border-radius:100px;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.csr-float{position:absolute;bottom:-24px;right:-24px;background:var(--c-deep);border-radius:18px;padding:20px 22px;box-shadow:0 16px 50px rgba(0,0,0,.4);z-index:5;border:3px solid rgba(156,199,176,.3);animation:floatY 5s ease-in-out infinite;text-align:center;min-width:130px}
+.csr-float .cv{font-size:2rem;font-weight:800;color:var(--c-soft);line-height:1}
+.csr-float .cl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:6px;font-weight:700}
+
+/* ============================================================
+   CERTIFICATE SLIDER
+   ============================================================ */
+.cert-section{padding:100px 0;background:var(--c-bg);position:relative;overflow:hidden}
+.cert-section::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(74,143,115,.04) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.cert-slider-wrap{position:relative;margin-top:60px;overflow:hidden}
+.cert-slider-wrap::before,.cert-slider-wrap::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:10;pointer-events:none}
+.cert-slider-wrap::before{left:0;background:linear-gradient(90deg,var(--c-bg),transparent)}
+.cert-slider-wrap::after{right:0;background:linear-gradient(-90deg,var(--c-bg),transparent)}
+.cert-track{display:flex;gap:24px;transition:transform .5s var(--ease-soft)}
+.cert-card{flex:0 0 calc(25% - 18px);background:#fff;border-radius:24px;padding:40px 28px;border:1.5px solid rgba(156,199,176,.35);text-align:center;box-shadow:0 6px 24px rgba(0,30,26,.06);transition:all .5s var(--ease-soft);cursor:pointer;position:relative;overflow:hidden}
+.cert-card::before{content:"";position:absolute;inset:0;background:var(--grad-hero);opacity:0;transition:opacity .5s}
+.cert-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(0,30,26,.14);border-color:var(--c-mid)}
+.cert-card:hover::before{opacity:1}
+.cert-card>*{position:relative;z-index:1}
+.cert-card:hover h3,.cert-card:hover p{color:#fff}
+.cert-card:hover .cert-ic-wrap{background:rgba(255,255,255,.18);color:#fff}
+.cert-ic-wrap{width:80px;height:80px;border-radius:22px;background:var(--tint-1);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;transition:all .5s var(--ease-spring)}
+/* image inside cert card */
+.cert-img-box{width:80px;height:80px;border-radius:22px;background:var(--tint-1);margin:0 auto 20px;overflow:hidden;display:flex;align-items:center;justify-content:center;transition:all .5s var(--ease-spring)}
+.cert-img-box img{width:100%;height:100%;object-fit:contain;padding:10px;transition:filter .4s}
+.cert-card:hover .cert-img-box{background:rgba(255,255,255,.18)}
+.cert-card:hover .cert-img-box img{filter:brightness(10)}
+.cert-card h3{font-size:1.05rem;color:var(--c-ink);margin-bottom:8px;transition:color .4s}
+.cert-card p{font-size:.85rem;color:var(--c-muted);line-height:1.6;transition:color .4s}
+@media(max-width:1000px){.cert-card{flex:0 0 calc(50% - 12px)}}
+@media(max-width:600px){.cert-card{flex:0 0 calc(100%)}}
+/* Slider controls */
+.cert-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:36px}
+.cert-btn{width:48px;height:48px;border-radius:50%;background:#fff;border:1.5px solid rgba(156,199,176,.5);color:var(--c-deep);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .35s var(--ease-spring);box-shadow:0 4px 16px rgba(0,30,26,.08)}
+.cert-btn:hover{background:var(--c-deep);color:#fff;border-color:var(--c-deep);transform:scale(1.1)}
+.cert-dots{display:flex;gap:8px;align-items:center}
+.cert-dot{width:8px;height:8px;border-radius:50%;background:rgba(156,199,176,.4);cursor:pointer;transition:all .35s var(--ease-soft)}
+.cert-dot.active{width:24px;border-radius:100px;background:var(--c-deep)}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee-band{background:var(--c-ink);padding:22px 0;overflow:hidden;border-radius:18px;margin-top:70px;border:1px solid rgba(156,199,176,.2)}
+.marquee-track{display:flex;gap:50px;white-space:nowrap;animation:mqRun 32s linear infinite;width:max-content}
+.marquee-track .item{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6rem;color:var(--c-soft);display:inline-flex;align-items:center;gap:50px}
+.marquee-track .item .star{color:var(--c-mid);font-size:1rem;font-style:normal}
+@keyframes mqRun{to{transform:translateX(-50%)}}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final-cta{padding:110px 0}
+.cta-card{background:var(--grad-hero);border-radius:32px;padding:80px 60px;color:#fff;text-align:center;position:relative;overflow:hidden}
+.cta-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(74,143,115,.5),transparent 45%);pointer-events:none}
+.cta-card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 70%,rgba(156,199,176,.35),transparent 45%);pointer-events:none}
+.cta-card .inner{position:relative;z-index:2;max-width:620px;margin:0 auto}
+.cta-card h2{color:#fff;margin:14px 0 14px}
+.cta-card p{color:rgba(255,255,255,.85);margin-bottom:28px}
+.cta-card .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+@media(max-width:600px){.cta-card{padding:60px 28px}}
+
+/* ========== FOOTER ========== */
+.footer{background:var(--c-ink);color:var(--c-soft);padding:60px 0 24px}
+.footer-row{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;margin-bottom:40px}
+@media(max-width:800px){.footer-row{grid-template-columns:1fr 1fr}}
+.footer h5{color:#fff;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
+.footer ul{list-style:none}
+.footer ul li{margin-bottom:8px;font-size:13px}
+.footer ul li a{color:rgba(156,199,176,.85);transition:color .3s}
+.footer ul li a:hover{color:var(--c-soft)}
+.footer .desc{font-size:13px;line-height:1.7;color:rgba(156,199,176,.75)}
+.footer .bottom{border-top:1px solid rgba(74,143,115,.3);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;color:rgba(156,199,176,.6)}
+
+/* ========== REVEAL ========== */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease-soft),transform .9s var(--ease-soft)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-l{transform:translateX(-40px)}
+.reveal-r{transform:translateX(40px)}
+.reveal-l.in,.reveal-r.in{transform:translateX(0)}
+.delay-1{transition-delay:.06s}.delay-2{transition-delay:.12s}.delay-3{transition-delay:.18s}.delay-4{transition-delay:.24s}
+
+/* cursor */
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);mix-blend-mode:difference}
+.cursor-dot{width:8px;height:8px;background:var(--c-soft);border-radius:50%}
+.cursor-ring{width:36px;height:36px;border:1.5px solid var(--c-soft);border-radius:50%;transition:width .25s,height .25s}
+.cursor-ring.hover{width:60px;height:60px}
+@media(max-width:900px){.cursor-dot,.cursor-ring{display:none}}
+/* back to top */
+.to-top{position:fixed;bottom:30px;right:30px;width:50px;height:50px;border-radius:50%;background:var(--c-deep);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,30,26,.3);z-index:90;opacity:0;transform:translateY(20px) scale(.8);pointer-events:none;transition:all .4s var(--ease-spring)}
+.to-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.to-top:hover{background:var(--c-mid);transform:translateY(-4px) scale(1.05)}
+
+/* ============================================================
+   FLYING BUTTERFLIES
+   ============================================================ */
+.butterfly{
+  position:fixed;
+  top:0;left:0;
+  z-index:95;            /* above content, below cursor/back-to-top */
+  pointer-events:none;
+  will-change:transform;
+}
+.butterfly.b-lg{animation:fly-lg 26s linear infinite}
+.butterfly.b-sm1{animation:fly-sm1 19s linear infinite}
+.butterfly.b-sm2{animation:fly-sm2 23s linear infinite}
+.butterfly .wings{
+  transform-origin:center;
+  animation:flap .22s ease-in-out infinite alternate;
+}
+.butterfly.b-lg   .wings{animation-duration:.30s}
+.butterfly.b-sm1  .wings{animation-duration:.18s}
+.butterfly.b-sm2  .wings{animation-duration:.20s}
+@keyframes flap{
+  from{transform:scaleX(1)}
+  to{transform:scaleX(.35)}
+}
+@keyframes fly-lg{
+  0%  {transform:translate(-12vw, 70vh) rotate(8deg)}
+  25% {transform:translate(28vw, 30vh) rotate(-10deg)}
+  50% {transform:translate(60vw, 60vh) rotate(6deg)}
+  75% {transform:translate(85vw, 20vh) rotate(-8deg)}
+  100%{transform:translate(112vw, 50vh) rotate(8deg)}
+}
+@keyframes fly-sm1{
+  0%  {transform:translate(110vw, 15vh) rotate(-6deg) scale(.55)}
+  30% {transform:translate(65vw, 45vh) rotate(10deg) scale(.55)}
+  60% {transform:translate(35vw, 18vh) rotate(-8deg) scale(.55)}
+  100%{transform:translate(-12vw, 40vh) rotate(6deg) scale(.55)}
+}
+@keyframes fly-sm2{
+  0%  {transform:translate(-10vw, 30vh) rotate(10deg) scale(.45)}
+  35% {transform:translate(40vw, 75vh) rotate(-8deg) scale(.45)}
+  70% {transform:translate(75vw, 35vh) rotate(8deg) scale(.45)}
+  100%{transform:translate(115vw, 65vh) rotate(-6deg) scale(.45)}
+}
+@media(prefers-reduced-motion:reduce){.butterfly{display:none}}
+@media(max-width:700px){.butterfly.b-sm2{display:none}}
+
+/* ====================================================
+   HITSHI NAVBAR OVERRIDE — consistent, fixed dropdown
+   ==================================================== */
+
+/* Reset any conflicting old nav styles */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:102;background:#001E1A;height:38px;display:flex;align-items:center;}
+.topbar .tb-inner{display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 32px;}
+.topbar .tb-left{display:flex;align-items:center;gap:22px;font-size:12px;font-weight:600;}
+.topbar .tb-left a{color:rgba(156,199,176,.85);display:inline-flex;align-items:center;gap:6px;transition:color .3s;}
+.topbar .tb-left a:hover{color:#9CC7B0;}
+.topbar .tb-left .sep{width:1px;height:14px;background:rgba(156,199,176,.25);}
+.topbar .tb-right{display:flex;align-items:center;}
+.topbar .tb-link{display:inline-flex;align-items:center;gap:7px;padding:0 18px;height:38px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(156,199,176,.85);border-left:1px solid rgba(156,199,176,.15);transition:background .3s,color .3s;white-space:nowrap;}
+.topbar .tb-link:first-child{border-left:none;}
+.topbar .tb-link:hover{background:rgba(74,143,115,.18);color:#9CC7B0;}
+.topbar .tb-link.highlight{background:#2D614A;color:#fff;}
+.topbar .tb-link.highlight:hover{background:#4A8F73;color:#fff;}
+@media(max-width:700px){.topbar .tb-left{display:none!important;}.topbar .tb-inner{justify-content:flex-end;}}
+@media(max-width:420px){.topbar .tb-link span{display:none!important;}.topbar .tb-link{padding:0 12px;}}
+
+/* Main nav */
+.nav{position:fixed!important;top:38px!important;left:0;right:0;z-index:100;padding:14px 0;background:rgba(255,255,255,.97)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 4px 20px rgba(0,30,26,.08);transition:all .4s ease;}
+.nav.scrolled{padding:10px 0;box-shadow:0 6px 30px rgba(0,30,26,.14);}
+.nav-row{display:flex;align-items:center;justify-content:space-between;}
+.brand img{height:46px;width:auto;}
+
+/* Desktop links */
+.nav-links{display:flex;gap:0;list-style:none;align-items:center;}
+.nav-links > li > a{color:#001E1A;font-size:14px;font-weight:600;position:relative;padding:8px 16px;display:flex;align-items:center;gap:5px;transition:color .3s;white-space:nowrap;}
+.nav-links > li > a::after{content:"";position:absolute;left:16px;right:16px;bottom:0;height:2px;background:#2D614A;width:0;transition:width .35s ease;}
+.nav-links > li > a:hover{color:#2D614A;}
+.nav-links > li > a:hover::after,.nav-links > li > a.active::after{width:calc(100% - 32px);}
+.nav-links > li > a.active{color:#2D614A;}
+.dropdown-arrow{font-size:9px;transition:transform .3s ease;margin-left:2px;}
+
+/* Dropdown — KEY FIX: no gap via pseudo-element bridge */
+.nav-dropdown{position:relative;}
+.nav-dropdown::after{content:'';position:absolute;bottom:-14px;left:0;width:100%;height:14px;} /* hover bridge */
+.dropdown-menu{position:absolute!important;top:calc(100% + 14px)!important;left:50%!important;transform:translateX(-50%) translateY(-6px)!important;background:#fff;border-radius:14px;list-style:none;min-width:220px;padding:8px 0;box-shadow:0 16px 40px rgba(0,30,26,.15);border:1px solid rgba(74,143,115,.1);opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .25s ease,transform .25s ease,visibility .25s;z-index:200;}
+.nav-dropdown:hover .dropdown-arrow,.nav-dropdown.dd-open .dropdown-arrow{transform:rotate(180deg);}
+.nav-dropdown:hover .dropdown-menu,.nav-dropdown.dd-open .dropdown-menu{opacity:1!important;visibility:visible!important;pointer-events:all!important;transform:translateX(-50%) translateY(0)!important;}
+.dropdown-menu li{margin:0;}
+.dropdown-menu li a{display:block!important;padding:10px 20px!important;font-size:13px!important;font-weight:600!important;color:#001E1A!important;transition:background .2s,color .2s,padding-left .2s!important;width:auto!important;}
+.dropdown-menu li a::after,.dropdown-menu li a::before{display:none!important;}
+.dropdown-menu li a:hover{background:#EAF3EE!important;color:#2D614A!important;padding-left:26px!important;}
+.dropdown-menu li a.active{background:#EAF3EE!important;color:#2D614A!important;}
+
+/* CTA & hamburger */
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:100px;background:#2D614A;color:#fff;transition:background .3s,transform .3s;white-space:nowrap;margin-left:16px;border:none;cursor:pointer;}
+.nav-cta:hover{background:#4A8F73;transform:translateY(-2px);}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;padding:8px;cursor:pointer;background:none;border:none;z-index:110;margin-left:12px;}
+.hamburger span{display:block;width:24px;height:2px;background:#001E1A;border-radius:2px;transition:all .35s ease;transform-origin:center;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(max-width:1050px){.nav-links > li > a{padding:8px 10px;font-size:13px;}.nav-links > li > a::after{left:10px;right:10px;}}
+@media(max-width:900px){.nav-links{display:none!important;}.hamburger{display:flex!important;}.nav-cta{display:none!important;}}
+
+/* Mobile nav */
+.mobile-nav{position:fixed;inset:0;background:#001E1A;z-index:199;transform:translateX(100%);transition:transform .4s cubic-bezier(.22,.61,.36,1);overflow-y:auto;display:flex;flex-direction:column;}
+.mobile-nav.open{transform:translateX(0);}
+.mobile-nav-inner{padding:80px 28px 50px;min-height:100%;display:flex;flex-direction:column;}
+.mobile-nav-close{position:fixed;top:16px;right:16px;z-index:200;background:rgba(255,255,255,.1);border:1px solid rgba(156,199,176,.3);color:#9CC7B0;width:42px;height:42px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s;font-family:inherit;}
+.mobile-nav-close:hover{background:rgba(255,255,255,.2);}
+.mobile-nav-links{list-style:none;display:flex;flex-direction:column;flex:1;}
+.mobile-nav-links > li > a,.mobile-nav-links > li > button{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 0;color:rgba(255,255,255,.85);font-size:1.05rem;font-weight:700;border-bottom:1px solid rgba(156,199,176,.12);transition:color .3s;background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;font-family:inherit;text-align:left;}
+.mobile-nav-links > li:last-child > a,.mobile-nav-links > li:last-child > button{border-bottom:none;}
+.mobile-nav-links > li > a:hover,.mobile-nav-links > li > button:hover,.mobile-nav-links > li > a.active,.mobile-nav-links > li > button.active{color:#9CC7B0;}
+.mobile-dd-arrow{font-size:11px;transition:transform .3s ease;}
+.mobile-nav-links > li.m-open > button .mobile-dd-arrow{transform:rotate(180deg);}
+.mobile-submenu{list-style:none;max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.mobile-nav-links > li.m-open > .mobile-submenu{max-height:600px;}
+.mobile-submenu li a{display:block;padding:10px 0 10px 20px;color:rgba(255,255,255,.65);font-size:.92rem;font-weight:600;border-bottom:1px solid rgba(156,199,176,.07);transition:color .2s;}
+.mobile-submenu li:last-child a{border-bottom:none;}
+.mobile-submenu li a:hover,.mobile-submenu li a.active{color:#9CC7B0;}
+.mobile-nav-cta{display:flex;align-items:center;justify-content:center;margin-top:32px;padding:16px 28px;background:#2D614A;color:#fff;border-radius:100px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;transition:background .3s;}
+.mobile-nav-cta:hover{background:#4A8F73;}
+body.nav-open{overflow:hidden;}
+
+/* HITSHI-NAV-CSS-v2 */
+/* ====================================================
+   HITSHI NAVBAR — v2 consistent, fixed dropdown gap
+   ==================================================== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:102;background:#001E1A;height:38px;display:flex;align-items:center;}
+.topbar .tb-inner{display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 32px;}
+.topbar .tb-left{display:flex;align-items:center;gap:22px;font-size:12px;font-weight:600;}
+.topbar .tb-left a{color:rgba(156,199,176,.85);display:inline-flex;align-items:center;gap:6px;transition:color .3s;}
+.topbar .tb-left a:hover{color:#9CC7B0;}
+.topbar .tb-left .sep{width:1px;height:14px;background:rgba(156,199,176,.25);}
+.topbar .tb-right{display:flex;align-items:center;}
+.topbar .tb-link{display:inline-flex;align-items:center;gap:7px;padding:0 18px;height:38px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(156,199,176,.85);border-left:1px solid rgba(156,199,176,.15);transition:background .3s,color .3s;white-space:nowrap;}
+.topbar .tb-link:first-child{border-left:none;}
+.topbar .tb-link:hover{background:rgba(74,143,115,.18);color:#9CC7B0;}
+.topbar .tb-link.highlight{background:#2D614A;color:#fff;}
+.topbar .tb-link.highlight:hover{background:#4A8F73;color:#fff;}
+@media(max-width:700px){.topbar .tb-left{display:none!important;}.topbar .tb-inner{justify-content:flex-end;}}
+@media(max-width:420px){.topbar .tb-link span{display:none!important;}.topbar .tb-link{padding:0 12px;}}
+.nav{position:fixed!important;top:38px!important;left:0;right:0;z-index:100;padding:14px 0;background:rgba(255,255,255,.97)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 4px 20px rgba(0,30,26,.08);transition:all .4s ease;}
+.nav.scrolled{padding:10px 0!important;box-shadow:0 6px 30px rgba(0,30,26,.14)!important;}
+.nav-row{display:flex;align-items:center;justify-content:space-between;}
+.brand img{height:46px;width:auto;}
+.nav-links{display:flex;gap:0;list-style:none;align-items:center;}
+.nav-links > li > a{color:#001E1A;font-size:14px;font-weight:600;position:relative;padding:8px 14px;display:flex;align-items:center;gap:5px;transition:color .3s;white-space:nowrap;}
+.nav-links > li > a::after{content:"";position:absolute;left:14px;right:14px;bottom:0;height:2px;background:#2D614A;width:0;transition:width .35s ease;}
+.nav-links > li > a:hover{color:#2D614A;}
+.nav-links > li > a:hover::after,.nav-links > li > a.active::after{width:calc(100% - 28px);}
+.nav-links > li > a.active{color:#2D614A;}
+.dropdown-arrow{font-size:9px;transition:transform .3s ease;margin-left:2px;}
+/* ── Dropdown gap fix: pseudo-element bridge keeps hover active ── */
+.nav-dropdown{position:relative;}
+.nav-dropdown::before{content:'';position:absolute;bottom:-14px;left:0;width:100%;height:14px;z-index:201;}
+.dropdown-menu{position:absolute!important;top:calc(100% + 14px)!important;left:50%!important;transform:translateX(-50%) translateY(-6px)!important;background:#fff;border-radius:14px;list-style:none;min-width:230px;padding:8px 0;box-shadow:0 16px 40px rgba(0,30,26,.15);border:1px solid rgba(74,143,115,.1);opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .25s ease,transform .25s ease,visibility .25s;z-index:200;}
+.nav-dropdown:hover > a .dropdown-arrow,.nav-dropdown.dd-open > a .dropdown-arrow{transform:rotate(180deg);}
+.nav-dropdown:hover > .dropdown-menu,.nav-dropdown.dd-open > .dropdown-menu{opacity:1!important;visibility:visible!important;pointer-events:all!important;transform:translateX(-50%) translateY(0)!important;}
+.dropdown-menu li{margin:0;}
+.dropdown-menu li a{display:block!important;padding:10px 20px!important;font-size:13px!important;font-weight:600!important;color:#001E1A!important;transition:background .2s,color .2s,padding-left .2s!important;}
+.dropdown-menu li a::after,.dropdown-menu li a::before{display:none!important;}
+.dropdown-menu li a:hover{background:#EAF3EE!important;color:#2D614A!important;padding-left:26px!important;}
+.dropdown-menu li a.active{background:#EAF3EE!important;color:#2D614A!important;font-weight:700!important;}
+.nav-cta{display:inline-flex!important;align-items:center;gap:8px;padding:11px 22px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:100px;background:#2D614A;color:#fff!important;transition:background .3s,transform .3s;white-space:nowrap;margin-left:16px;border:none;cursor:pointer;text-decoration:none;}
+.nav-cta:hover{background:#4A8F73;transform:translateY(-2px);}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;padding:8px;cursor:pointer;background:none;border:none;z-index:110;margin-left:8px;}
+.hamburger span{display:block;width:24px;height:2px;background:#001E1A;border-radius:2px;transition:all .35s ease;transform-origin:center;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(max-width:1080px){.nav-links > li > a{padding:8px 10px;font-size:13px;}.nav-links > li > a::after{left:10px;right:10px;}}
+@media(max-width:900px){.nav-links{display:none!important;}.hamburger{display:flex!important;}.nav-cta{display:none!important;}}
+.mobile-nav{position:fixed;inset:0;background:#001E1A;z-index:199;transform:translateX(100%);transition:transform .4s cubic-bezier(.22,.61,.36,1);overflow-y:auto;display:flex;flex-direction:column;}
+.mobile-nav.open{transform:translateX(0);}
+.mobile-nav-inner{padding:80px 28px 50px;min-height:100%;display:flex;flex-direction:column;}
+.mobile-nav-close{position:fixed;top:16px;right:16px;z-index:200;background:rgba(255,255,255,.1);border:1px solid rgba(156,199,176,.3);color:#9CC7B0;width:42px;height:42px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s;font-family:inherit;}
+.mobile-nav-close:hover{background:rgba(255,255,255,.2);}
+.mobile-nav-links{list-style:none;display:flex;flex-direction:column;flex:1;}
+.mobile-nav-links > li > a,.mobile-nav-links > li > button.m-dd-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 0;color:rgba(255,255,255,.85);font-size:1.05rem;font-weight:700;border-bottom:1px solid rgba(156,199,176,.12);transition:color .3s;background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;font-family:inherit;text-align:left;}
+.mobile-nav-links > li:last-child > a{border-bottom:none;}
+.mobile-nav-links > li > a:hover,.mobile-nav-links > li > button.m-dd-btn:hover,.mobile-nav-links > li > a.active,.mobile-nav-links > li > button.m-dd-btn.active{color:#9CC7B0;}
+.m-dd-arrow{font-size:11px;transition:transform .3s ease;}
+.mobile-nav-links > li.m-open > button.m-dd-btn .m-dd-arrow{transform:rotate(180deg);}
+.mobile-submenu{list-style:none;max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.mobile-nav-links > li.m-open > .mobile-submenu{max-height:600px;}
+.mobile-submenu li a{display:block;padding:10px 0 10px 20px;color:rgba(255,255,255,.65);font-size:.92rem;font-weight:600;border-bottom:1px solid rgba(156,199,176,.07);transition:color .2s;}
+.mobile-submenu li:last-child a{border-bottom:none;}
+.mobile-submenu li a:hover,.mobile-submenu li a.active{color:#9CC7B0;}
+.mobile-nav-cta{display:flex;align-items:center;justify-content:center;margin-top:32px;padding:16px 28px;background:#2D614A;color:#fff;border-radius:100px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;transition:background .3s;}
+.mobile-nav-cta:hover{background:#4A8F73;}
+body.nav-open{overflow:hidden;}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="tb-inner">
+    <div class="tb-left">
+      <a href="tel:+919326954338"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92l-.08 2z"/></svg>+91 93269 54338</a>
+      <span class="sep"></span>
+      <a href="mailto:tanuja@hitshi.in"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>tanuja@hitshi.in</a>
+      <span class="sep"></span>
+      <span style="color:rgba(156,199,176,0.7);font-size:12px;font-weight:600;">Mon – Sat &nbsp;9 AM – 6 PM</span>
+    </div>
+    <div class="tb-right">
+      <a href="blogs.html" class="tb-link"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Blog</span></a>
+      <a href="contact.html" class="tb-link highlight"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>Contact Us</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container nav-row">
+    <a href="index.html" class="brand" aria-label="Hitshi Industries"><img src="images/logo/hitshi.svg" alt="Hitshi Industries" onerror="this.onerror=null;"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="Acompany_Overview.html">About Us <span class="dropdown-arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="Acompany_Overview.html">Company Overview</a></li>
+          <li><a href="AFounder_Ceo_message.html">Founder's Message</a></li>
+          <li><a href="APromoters_Directors.html">Promoters &amp; Directors</a></li>
+          <li><a href="ACorporate_culture.html">Corporate Culture</a></li>
+          <li><a href="AAward_&_Recognitions.html">Awards &amp; Recognitions</a></li>
+          <li><a href="AOur_lmpact_Solution.html">Our Impact &amp; Solution</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="service-polymers.html">Services <span class="dropdown-arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="service-polymers.html">Polymers — PP, PE, PVC, HDPE, LDPE</a></li>
+          <li><a href="service-industrial.html">Industrial Moulded Products</a></li>
+          <li><a href="service-packaging.html">Plastic Packaging</a></li>
+          <li><a href="service-engineering.html">Engineering Products</a></li>
+          <li><a href="service-waste.html">Waste Management</a></li>
+          <li><a href="service-quality.html">Quality Control</a></li>
+          <li><a href="service-logistics.html">Logistics &amp; Supply Chain</a></li>
+        </ul>
+      </li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="Manufacturing.html">Manufacturing</a></li>
+      <li><a href="Infra_tech.html">Infrastructure &amp; Tech</a></li>
+      <li><a href="substainablity.html" class="active">Sustainability</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get Quote →</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ MOBILE NAV ============ -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav-inner">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <button class="m-dd-btn " data-mobile-dd>About Us <span class="m-dd-arrow">▾</span></button>
+        <ul class="mobile-submenu">
+          <li><a href="Acompany_Overview.html">Company Overview</a></li>
+          <li><a href="AFounder_Ceo_message.html">Founder's Message</a></li>
+          <li><a href="APromoters_Directors.html">Promoters &amp; Directors</a></li>
+          <li><a href="ACorporate_culture.html">Corporate Culture</a></li>
+          <li><a href="AAward_&_Recognitions.html">Awards &amp; Recognitions</a></li>
+          <li><a href="AOur_lmpact_Solution.html">Our Impact &amp; Solution</a></li>
+        </ul>
+      </li>
+      <li>
+        <button class="m-dd-btn " data-mobile-dd>Services <span class="m-dd-arrow">▾</span></button>
+        <ul class="mobile-submenu">
+          <li><a href="service-polymers.html">Polymers — PP, PE, PVC, HDPE, LDPE</a></li>
+          <li><a href="service-industrial.html">Industrial Moulded Products</a></li>
+          <li><a href="service-packaging.html">Plastic Packaging</a></li>
+          <li><a href="service-engineering.html">Engineering Products</a></li>
+          <li><a href="service-waste.html">Waste Management</a></li>
+          <li><a href="service-quality.html">Quality Control</a></li>
+          <li><a href="service-logistics.html">Logistics &amp; Supply Chain</a></li>
+        </ul>
+      </li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="Manufacturing.html">Manufacturing</a></li>
+      <li><a href="Infra_tech.html">Infrastructure &amp; Technology</a></li>
+      <li><a href="substainablity.html" class="active">Sustainability</a></li>
+      <li><a href="blogs.html">Blog</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <a href="contact.html" class="mobile-nav-cta">Get Quote →</a>
+  </div>
+</div>
+
+
+
+<!-- ============ TOPBAR ============ -->
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="sustain-hero">
+  <span class="blob b1"></span><span class="blob b2"></span>
+
+  <!-- Background image overlay -->
+  <div style="
+    position:absolute;
+    inset:0;
+    background:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920&q=80') center/cover no-repeat;
+    opacity:0.3;
+    z-index:0;
+    mix-blend-mode:luminosity;
+  "></div>
+
+  <div class="particles" id="particles"></div>
+  <div class="container inner">
+    <div class="hero-icon" aria-hidden="true">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9CC7B0" stroke-width="2">
+        <path d="M17 8C8 10 5.9 16.17 3.82 19.34A1 1 0 004.69 21C7.34 20.07 18 15 17 3c-1.7 2.16-4 3.76-6.5 4.5"/>
+        <path d="M9 12c0 4 3 6 6 8"/>
+      </svg>
+    </div>
+    <div class="eyebrow light" style="justify-content:center;">Sustainability</div>
+    <h1>
+      <span class="word">Built</span>
+      <span class="word">to</span>
+      <span class="word">last,</span>
+      <br>
+      <span class="word gw">designed</span>
+      <span class="word gw">to</span>
+      <span class="word gw">respect</span>
+    </h1>
+    <p class="lead">At Hitshi Industries, sustainability is not a short-term response — it is a long-term commitment embedded in our material choices, manufacturing practices, and every product we ship.</p>
+    <div class="hero-pills">
+      <div class="hero-pill"><span class="num">PP&nbsp;#5</span> Recyclable Resin</div>
+      <div class="hero-pill"><span class="num">PVC</span> 50-yr Pipe Life</div>
+      <div class="hero-pill"><span class="num">ISO</span> 14001 Certified</div>
+      <div class="hero-pill"><span class="num">0</span> Scrap to Landfill</div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     INTRO NARRATIVE
+     ============================================================ -->
+<section class="intro-section">
+  <div class="container intro-grid">
+
+    <div class="intro-body reveal reveal-l">
+      <div class="eyebrow">Our Perspective</div>
+      <h2>A manufacturer's <span class="accent">responsibility</span></h2>
+      <p>We see our products as a platform to shape a better future — not just through design and function, but through environmental consciousness. In a world increasingly aware of resource depletion, we believe every manufacturer must play an active role in building a more sustainable supply chain.</p>
+      <p>Since our establishment in 2019, Hitshi Industries has continuously explored how to reduce environmental impact while maintaining <strong>high-quality, reliable plastic products</strong> — from food-grade PP jars and delivery containers, to long-life PVC pipe fittings, to lightweight automotive parts for two-wheelers.</p>
+      <p>Our journey toward sustainability is not reactive. It is <strong>embedded in strategy, culture, and daily operations</strong> — from the polymer we select at purchase to the recycling instructions we print on our packaging.</p>
+    </div>
+
+    <div class="intro-quote reveal reveal-r delay-1">
+      <span class="q-mark" aria-hidden="true">"</span>
+      <blockquote>
+        <p>Every material decision we make has a downstream consequence. Choosing the right polymer is not just an engineering call — it is an environmental one.</p>
+        <cite>— Tanuja Sharma, Founder &amp; MD, Hitshi Industries</cite>
+        <div class="intro-stats">
+          <div class="intro-stat">
+            <div class="sv">2019</div>
+            <div class="sl">Founded with sustainability in our brief</div>
+          </div>
+          <div class="intro-stat">
+            <div class="sv">ISO</div>
+            <div class="sl">14001 Environmental Mgmt. Certified</div>
+          </div>
+          <div class="intro-stat">
+            <div class="sv">PP&nbsp;#5</div>
+            <div class="sl">Recyclable resin — all food packaging</div>
+          </div>
+          <div class="intro-stat">
+            <div class="sv">50 yr</div>
+            <div class="sl">PVC pipe service life — less replacement</div>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     OUR COMMITMENT — 4 PILLARS
+     ============================================================ -->
+<section class="commitment-section">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center;max-width:680px;margin:0 auto 60px;">
+      <div class="eyebrow" style="justify-content:center;">Our Commitment</div>
+      <h2 style="margin-top:14px;">Four principles that <span class="accent">guide everything</span></h2>
+      <p style="color:var(--c-muted);margin-top:14px;">These are not aspirations for a future programme. They are the active framework behind every product decision we make today.</p>
+    </div>
+    <div class="commit-grid">
+
+      <div class="commit-card reveal delay-1">
+        <div class="commit-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        </div>
+        <div class="commit-num">01</div>
+        <h3>Smart Material Choice</h3>
+        <p>We use PP, HDPE, and PVC — resins selected not only for performance but for their recyclability at end of life. No EPS (thermocol), no PU foam in any product line.</p>
+      </div>
+
+      <div class="commit-card reveal delay-2">
+        <div class="commit-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        </div>
+        <div class="commit-num">02</div>
+        <h3>Closed-Loop Manufacturing</h3>
+        <p>Every sprue, runner and production reject is granulated on-site and reintroduced into the process. Process cooling water is recirculated — nothing wasted, nothing discharged.</p>
+      </div>
+
+      <div class="commit-card reveal delay-3">
+        <div class="commit-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 8C8 10 5.9 16.17 3.82 19.34A1 1 0 004.69 21C7.34 20.07 18 15 17 3c-1.7 2.16-4 3.76-6.5 4.5"/><path d="M9 12c0 4 3 6 6 8"/></svg>
+        </div>
+        <div class="commit-num">03</div>
+        <h3>Products That Last</h3>
+        <p>A product that lasts longer is inherently more sustainable. Our PVC pipe fittings are designed for a 50-year service life. Our automotive parts resist corrosion — eliminating the replacement cycles metal demands.</p>
+      </div>
+
+      <div class="commit-card reveal delay-4">
+        <div class="commit-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="commit-num">04</div>
+        <h3>Supply Chain Transparency</h3>
+        <p>We maintain full material batch documentation — resin grades, certifications, and supplier origin — so our customers can include our parts in their own sustainability disclosures with confidence.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT WE'RE DOING — 3 BIG ROWS
+     ============================================================ -->
+<section class="doing-section" id="what-we-do">
+  <div class="container">
+
+    <div class="section-head reveal" style="text-align:center;max-width:680px;margin:0 auto 80px;">
+      <div class="eyebrow" style="justify-content:center;">What We're Doing</div>
+      <h2 style="margin-top:14px;">Action across <span class="accent">three fronts</span></h2>
+      <p style="color:var(--c-muted);margin-top:14px;">Eco-friendly materials, cleaner manufacturing, and a responsible supply chain — these are the three areas where our sustainability commitment shows up in practice.</p>
+    </div>
+
+    <!-- ROW 1 — ECO-FRIENDLY MATERIALS -->
+    <div class="doing-row">
+      <div class="doing-img reveal reveal-l">
+        <div class="d-ring tl"></div>
+        <!-- MAIN → images/sustainability/eco-materials.jpg -->
+        <div class="d-main" style="background:linear-gradient(135deg,var(--tint-2),var(--c-mid))">
+          <img src="images/img/pexels-leticia.jpg" alt="Recyclable PP and HDPE food jars" onerror="this.style.display='none'">
+          <div class="d-ph"><span class="pi">🫙</span><span>Your product photo here</span><code>images/sustainability/eco-materials.jpg</code></div>
+          <div class="d-label">PP &amp; HDPE Food Jars · Food Containers</div>
+        </div>
+        <!-- FLOAT → images/sustainability/eco-materials-2.jpg -->
+        <div class="d-float br" style="background:linear-gradient(135deg,var(--c-mid),var(--c-deep))">
+          <img src="images/img/pexels-thom-gonzalez.jpg" alt="PP delivery containers" onerror="this.style.display='none'">
+          <div class="d-ph"><span class="pi">📦</span><code>eco-materials-2.jpg</code></div>
+          <div class="d-label">PP Delivery Containers</div>
+        </div>
+        <div class="d-badge tr">
+          <div class="bv">BPA</div>
+          <div class="bl">Free · PP &amp; HDPE</div>
+        </div>
+      </div>
+
+      <div class="doing-body reveal reveal-r delay-1">
+        <div class="eyebrow">01 &nbsp;·&nbsp; Eco-Friendly Materials</div>
+        <h2>Recyclable resins, <span class="accent">chosen by design</span></h2>
+        <p>We actively use recyclable, food-safe resins across all product lines. <strong>Polypropylene (PP, Resin #5)</strong> and <strong>High-Density Polyethylene (HDPE, Resin #2)</strong> are the two most widely accepted plastics in Indian and global municipal recycling streams. Every food jar, delivery container, cap, and closure we produce can re-enter the material cycle at end of life.</p>
+        <p>Choosing PP over EPS (thermocol) for our food delivery containers — rectangle meal boxes, 5CP thalis, hinge boxes, sweet boxes, salad bowls — is a deliberate material upgrade: PP is recyclable, microwave-safe, and does not break into persistent microplastic beads the way polystyrene does.</p>
+        <ul class="point-list">
+          <li class="point-item"><div class="p-ic">♻</div><div class="point-text"><strong>PP (Resin #5) &amp; HDPE (Resin #2)</strong> — both widely recyclable; used across all our food packaging and delivery container ranges.</div></li>
+          <li class="point-item"><div class="p-ic">🛡</div><div class="point-text"><strong>BPA-free food-contact grades</strong> — all food jars, containers, caps and delivery boxes are moulded in BPA-free PP or HDPE.</div></li>
+          <li class="point-item"><div class="p-ic">⚖</div><div class="point-text"><strong>Up to 90% lighter than glass</strong> — PP jars for pickle, masala, dal, rice and atta reduce transport fuel consumption versus glass alternatives.</div></li>
+          <li class="point-item"><div class="p-ic">⏳</div><div class="point-text"><strong>PVC — 50-year service life</strong> — our pipe fittings (elbows, tees, couplings, reducers, unions, adaptors) outlast metal fittings and resist corrosion.</div></li>
+        </ul>
+        <div class="chip-row">
+          <span class="chip">Recyclable PP #5</span>
+          <span class="chip">HDPE #2</span>
+          <span class="chip">PVC Pipe Fittings</span>
+          <span class="chip">BPA-Free Food Grade</span>
+          <span class="chip">No EPS / Thermocol</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 2 — GREENER MANUFACTURING -->
+    <div class="doing-row rev">
+      <div class="doing-img reveal reveal-r">
+        <div class="d-ring tr"></div>
+        <!-- MAIN → images/sustainability/factory-floor.jpg -->
+        <div class="d-main" style="background:linear-gradient(135deg,#08322A,#1A6B50)">
+          <img src="images/img/pexels-cottonbro-6591427.jpg" alt="Hitshi factory production floor" onerror="this.style.display='none'">
+          <div class="d-ph" style="color:rgba(156,199,176,.6)"><span class="pi">🏭</span><span>Factory floor photo here</span><code>images/sustainability/factory-floor.jpg</code></div>
+          <div class="d-label">Production Floor · Mumbai Facility</div>
+        </div>
+        <!-- FLOAT → images/sustainability/scrap-regrind.jpg -->
+        <div class="d-float bl" style="background:linear-gradient(135deg,#2D614A,#001E1A)">
+          <img src="images/img/pexels-vladvictoria-2682683.jpg" alt="Scrap regrind station" onerror="this.style.display='none'">
+          <div class="d-ph" style="color:rgba(156,199,176,.6)"><span class="pi">♻</span><code>scrap-regrind.jpg</code></div>
+          <div class="d-label">Zero-Scrap Station</div>
+        </div>
+        <div class="d-badge tr">
+          <div class="bv">0</div>
+          <div class="bl">Scrap to landfill</div>
+        </div>
+      </div>
+
+      <div class="doing-body reveal reveal-l delay-1">
+        <div class="eyebrow">02 &nbsp;·&nbsp; Greener Manufacturing</div>
+        <h2>Cleaner on the <span class="accent">shop floor</span></h2>
+        <p>Injection moulding is inherently an efficient process — material goes into the hopper, part comes out, with minimal waste when tooling is well-maintained. We build further on that efficiency through four active practices running on our Mumbai facility every day.</p>
+        <p>We maintain strict <strong>first-pass quality standards</strong> because catching a defect at the press costs nothing in transport or rework energy. A returned shipment from a customer's factory, on the other hand, doubles the carbon footprint of that part.</p>
+        <ul class="point-list">
+          <li class="point-item"><div class="p-ic">🔄</div><div class="point-text"><strong>100% in-house scrap regrind</strong> — all sprues, runners and rejects are granulated on-site and reintroduced at controlled ratios. Nothing goes to landfill.</div></li>
+          <li class="point-item"><div class="p-ic">💧</div><div class="point-text"><strong>Closed-loop cooling water</strong> — process cooling water is fully recirculated through our chiller system. Zero freshwater discharge from the moulding floor.</div></li>
+          <li class="point-item"><div class="p-ic">🔍</div><div class="point-text"><strong>First-pass quality at the press</strong> — dimensional inspection before dispatch eliminates return logistics and the emissions that come with them.</div></li>
+          <li class="point-item"><div class="p-ic">📦</div><div class="point-text"><strong>Right-size packaging</strong> — parts are packed in the smallest compliant carton to maximise pallet density and cut vehicle trips per delivery run.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ROW 3 — SUSTAINABLE SUPPLY CHAIN -->
+    <div class="doing-row">
+      <div class="doing-img reveal reveal-l">
+        <div class="d-ring tl"></div>
+        <!-- MAIN → images/sustainability/supply-chain.jpg -->
+        <div class="d-main" style="background:linear-gradient(135deg,var(--tint-3),var(--c-deep))">
+          <img src="images/img/pexels-mario-vasquez-rioja-560959392-16891089.jpg" alt="Hitshi supply chain and logistics" onerror="this.style.display='none'">
+          <div class="d-ph"><span class="pi">🔗</span><span>Supply chain / logistics photo here</span><code>images/sustainability/supply-chain.jpg</code></div>
+          <div class="d-label">Supply Chain · Pan-India</div>
+        </div>
+        <!-- FLOAT → images/sustainability/batch-docs.jpg -->
+        <div class="d-float br" style="background:linear-gradient(135deg,var(--c-mid),var(--c-deep))">
+          <img src="images/img/pexels-cpkhanal-36751335.jpg" alt="Material batch documentation" onerror="this.style.display='none'">
+          <div class="d-ph"><span class="pi">📋</span><code>batch-docs.jpg</code></div>
+          <div class="d-label">Batch Documentation</div>
+        </div>
+        <div class="d-badge tr">
+          <div class="bv">48h</div>
+          <div class="bl">Pan-India dispatch</div>
+        </div>
+      </div>
+
+      <div class="doing-body reveal reveal-r delay-1">
+        <div class="eyebrow">03 &nbsp;·&nbsp; Sustainable Supply Chain</div>
+        <h2>Responsible from <span class="accent">source to doorstep</span></h2>
+        <p>Sustainability does not stop at our factory gate. We work only with resin and component suppliers who can provide full material traceability — certified food-grade grades, documented resin origins, and compliant processing conditions.</p>
+        <p>Every batch we ship includes material data sheets so our customers — food brands, plumbing contractors, automotive OEMs — can include Hitshi components in their own environmental reporting and supplier declarations with accurate, auditable information.</p>
+        <ul class="point-list">
+          <li class="point-item"><div class="p-ic">📋</div><div class="point-text"><strong>Full batch traceability</strong> — resin grade, origin, certifications and production records are archived for every batch dispatched.</div></li>
+          <li class="point-item"><div class="p-ic">✅</div><div class="point-text"><strong>Certified material grades only</strong> — food-contact PP and HDPE grades are purchased from suppliers with valid food-safety certifications.</div></li>
+          <li class="point-item"><div class="p-ic">🚚</div><div class="point-text"><strong>Consolidated dispatch</strong> — orders are batched for maximum pallet density, reducing the number of vehicle trips per tonne of product delivered.</div></li>
+          <li class="point-item"><div class="p-ic">🏍</div><div class="point-text"><strong>Lightweight automotive parts</strong> — our bike plastic parts (PP and ABS) are up to 40% lighter than metal alternatives, reducing vehicle weight and improving fuel efficiency for every bike on the road.</div></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     CSR
+     ============================================================ -->
+<section class="csr-section" id="csr">
+  <div class="container csr-grid">
+
+    <div class="csr-body reveal reveal-l">
+      <div class="eyebrow light">Corporate Social Responsibility</div>
+      <h2>Beyond the <span class="accent-light">factory floor</span></h2>
+      <p>At Hitshi, sustainability goes beyond environmental protection — it also means making a positive impact on people and society. As a responsible manufacturer, we embrace our social responsibility by creating value not only for our customers and shareholders, but for our <strong>employees, communities, and future generations.</strong></p>
+      <p>We are committed to ethical business practices, transparent operations, and fair treatment across our value chain. Through long-term programs and daily action, we aim to drive inclusive growth and strengthen community well-being in Malad and across our supplier network.</p>
+      <div class="csr-cards">
+        <div class="csr-card">
+          <div class="cc-ic">👷</div>
+          <h4>Safe Workplaces</h4>
+          <p>All operators on our injection moulding floor follow documented safety protocols. Machine guarding, PPE compliance, and regular safety audits are non-negotiable.</p>
+        </div>
+        <div class="csr-card">
+          <div class="cc-ic">📚</div>
+          <h4>Skill Development</h4>
+          <p>We invest in continuous training for our production team — from machine operation to quality inspection — building careers and not just filling roles.</p>
+        </div>
+        <div class="csr-card">
+          <div class="cc-ic">🤝</div>
+          <h4>Fair Supply Chain</h4>
+          <p>We audit key suppliers for fair labour practices, safety compliance, and certified raw materials — ensuring our values extend upstream.</p>
+        </div>
+        <div class="csr-card">
+          <div class="cc-ic">🌱</div>
+          <h4>Local Community</h4>
+          <p>Our facility supports local employment in Malad East, and we engage with neighbourhood initiatives that align with our broader mission.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="csr-img-wrap reveal reveal-r delay-1">
+      <!-- IMAGE → images/sustainability/csr-team.jpg -->
+      <div class="csr-main-img">
+        <img src="images/img/pexels-noah-schroeder-422567-5773087.jpg" alt="Hitshi team and community" onerror="this.style.display='none'">
+        <div class="csr-d-ph"><span class="pi">🤝</span><span>Team or community photo here</span><code>images/sustainability/csr-team.jpg</code></div>
+        <div class="csr-d-label">Our People · Mumbai Facility</div>
+      </div>
+      <div class="csr-float">
+        <div class="cv">2019</div>
+        <div class="cl">Est. with people &amp; planet in mind</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     CERTIFICATE SLIDER
+     ============================================================ -->
+<section class="cert-section" id="certifications">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center;max-width:680px;margin:0 auto 0;">
+      <div class="eyebrow" style="justify-content:center;">Our Certificates</div>
+      <h2 style="margin-top:14px;">Verified by <span class="accent">independent bodies</span></h2>
+      <p style="color:var(--c-muted);margin-top:14px;">Every environmental and quality claim we make is audited and renewed by a third-party certification body — not self-declared.</p>
+    </div>
+
+    <div class="cert-slider-wrap">
+      <div class="cert-track" id="certTrack">
+
+        <!-- CERT 1 -->
+        <div class="cert-card">
+          <!-- IMAGE → images/sustainability/cert-iso9001.png (your actual cert logo or badge) -->
+          <div class="cert-img-box">
+            <img src="images/sustainability/cert-iso9001.png" alt="ISO 9001 certificate" onerror="this.style.display='none'">
+            <span style="font-size:2rem;position:absolute;" id="fb1">✅</span>
+          </div>
+          <h3>ISO 9001 : 2015</h3>
+          <p>Quality Management System — audited and certified by DNV India. Renewed 2024.</p>
+        </div>
+
+        <!-- CERT 2 -->
+        <div class="cert-card">
+          <!-- IMAGE → images/sustainability/cert-iso14001.png -->
+          <div class="cert-img-box">
+            <img src="images/sustainability/cert-iso14001.png" alt="ISO 14001 certificate" onerror="this.style.display='none'">
+            <span style="font-size:2rem;position:absolute;" id="fb2">🌿</span>
+          </div>
+          <h3>ISO 14001 : 2015</h3>
+          <p>Environmental Management System — certified by DNV India. Demonstrates our commitment to reducing environmental impact.</p>
+        </div>
+
+        <!-- CERT 3 -->
+        <div class="cert-card">
+          <!-- IMAGE → images/sustainability/cert-dnv.png -->
+          <div class="cert-img-box">
+            <img src="images/sustainability/cert-dnv.png" alt="DNV certification" onerror="this.style.display='none'">
+            <span style="font-size:2rem;position:absolute;" id="fb3">🏅</span>
+          </div>
+          <h3>DNV Certified</h3>
+          <p>Det Norske Veritas (DNV) is a globally recognised independent certification body — our auditor for both ISO 9001 and ISO 14001.</p>
+        </div>
+
+        <!-- CERT 4 -->
+        <div class="cert-card">
+          <!-- IMAGE → images/sustainability/cert-food-grade.png -->
+          <div class="cert-img-box">
+            <img src="images/sustainability/cert-food-grade.png" alt="Food grade compliance" onerror="this.style.display='none'">
+            <span style="font-size:2rem;position:absolute;" id="fb4">🥛</span>
+          </div>
+          <h3>Food-Grade Compliance</h3>
+          <p>All PP and HDPE resins used in food jars, delivery containers and closures are food-contact certified. Batch documentation available on request.</p>
+        </div>
+
+        <!-- CERT 5 -->
+        <div class="cert-card">
+          <!-- IMAGE → images/sustainability/cert-maruti.png -->
+          <div class="cert-img-box">
+            <img src="images/sustainability/cert-maruti.png" alt="Maruti Suzuki vendor award" onerror="this.style.display='none'">
+            <span style="font-size:2rem;position:absolute;" id="fb5">🏆</span>
+          </div>
+          <h3>OEM Vendor Excellence</h3>
+          <p>Recognised as a Top Plastic Supplier by Maruti Suzuki (2024) — meeting OEM-grade quality and supply-chain reliability standards.</p>
+        </div>
+
+        <!-- CERT 6 -->
+        <div class="cert-card">
+          <!-- IMAGE → images/sustainability/cert-tata.png -->
+          <div class="cert-img-box">
+            <img src="images/sustainability/cert-tata.png" alt="Tata Auto Components OEM status" onerror="this.style.display='none'">
+            <span style="font-size:2rem;position:absolute;" id="fb6">⭐</span>
+          </div>
+          <h3>OEM-Aligned Supplier</h3>
+          <p>Recognised as an OEM-Aligned Supplier by Tata Auto Components — validating our quality systems, traceability, and delivery consistency.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Slider controls -->
+    <div class="cert-controls">
+      <button class="cert-btn" id="certPrev" aria-label="Previous certificate">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="cert-dots" id="certDots"></div>
+      <button class="cert-btn" id="certNext" aria-label="Next certificate">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <!-- Marquee -->
+    <div class="marquee-band reveal">
+      <div class="marquee-track">
+        <span class="item">Recyclable PP &amp; HDPE <span class="star">✦</span> ISO 14001 Certified <span class="star">✦</span> Zero Scrap to Landfill <span class="star">✦</span> 50-Year PVC Life <span class="star">✦</span> BPA-Free Food Grade <span class="star">✦</span> OEM Vendor Excellence</span>
+        <span class="item">Recyclable PP &amp; HDPE <span class="star">✦</span> ISO 14001 Certified <span class="star">✦</span> Zero Scrap to Landfill <span class="star">✦</span> 50-Year PVC Life <span class="star">✦</span> BPA-Free Food Grade <span class="star">✦</span> OEM Vendor Excellence</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+     ============================================================ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div class="inner">
+        <div class="eyebrow light" style="justify-content:center;">Every gram matters</div>
+        <h2>Ready to build a <span class="accent-light">greener supply chain?</span></h2>
+        <p>Ask us about material certifications, batch traceability documentation, or how our products fit your sustainability reporting requirements.</p>
+        <div class="actions">
+          <a href="contact.html" class="btn btn-primary">Send an Inquiry <span class="arrow">→</span></a>
+          <a href="products.html" class="btn btn-ghost">See all products <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <img src="images/logo/hitshi.svg" alt="Hitshi" style="height:46px;" onerror="this.onerror=null;">
+          <strong style="color:#fff;letter-spacing:.16em;">HITSHI INDUSTRIES</strong>
+        </div>
+        <p class="desc">Manufacturer of PP food jars, delivery containers, PVC pipe fittings, and bike automotive plastic parts — Mumbai, India. ISO 9001 &amp; 14001 certified.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Sustainability</h5>
+        <ul>
+          <li><a href="#what-we-do">What We're Doing</a></li>
+          <li><a href="#csr">CSR</a></li>
+          <li><a href="#certifications">Certificates</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get In Touch</h5>
+        <p class="desc">+91 9326954338<br>tanuja@hitshi.in<br>Office No. 503, 5th Floor, Malad (East), Mumbai – 400097</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>© 2026 Hitshi Industries Pvt. Ltd. · All rights reserved</div>
+      <div>Privacy · Terms · Sitemap</div>
+    </div>
+  </div>
+</footer>
+
+<div class="to-top" id="toTop">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</div>
+
+<!-- ============================================================
+     FLYING BUTTERFLIES  (1 large + 2 small)
+     ============================================================ -->
+<div class="butterfly b-lg" aria-hidden="true">
+  <div class="wings">
+    <svg width="60" height="52" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="30" cy="26" rx="2.2" ry="13" fill="#001E1A"/>
+      <path d="M30 14 C27 7,23 5,21 4" stroke="#001E1A" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M30 14 C33 7,37 5,39 4" stroke="#001E1A" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M29 20 C12 4,2 10,5 22 C7 30,22 28,29 26 Z" fill="#2D614A"/>
+      <path d="M29 28 C16 34,6 44,14 49 C21 52,28 38,29 32 Z" fill="#4A8F73"/>
+      <path d="M31 20 C48 4,58 10,55 22 C53 30,38 28,31 26 Z" fill="#2D614A"/>
+      <path d="M31 28 C44 34,54 44,46 49 C39 52,32 38,31 32 Z" fill="#4A8F73"/>
+      <circle cx="16" cy="17" r="2.4" fill="#9CC7B0"/>
+      <circle cx="44" cy="17" r="2.4" fill="#9CC7B0"/>
+    </svg>
+  </div>
+</div>
+
+<div class="butterfly b-sm1" aria-hidden="true">
+  <div class="wings">
+    <svg width="60" height="52" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="30" cy="26" rx="2.2" ry="13" fill="#001E1A"/>
+      <path d="M30 14 C27 7,23 5,21 4" stroke="#001E1A" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M30 14 C33 7,37 5,39 4" stroke="#001E1A" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M29 20 C12 4,2 10,5 22 C7 30,22 28,29 26 Z" fill="#4A8F73"/>
+      <path d="M29 28 C16 34,6 44,14 49 C21 52,28 38,29 32 Z" fill="#9CC7B0"/>
+      <path d="M31 20 C48 4,58 10,55 22 C53 30,38 28,31 26 Z" fill="#4A8F73"/>
+      <path d="M31 28 C44 34,54 44,46 49 C39 52,32 38,31 32 Z" fill="#9CC7B0"/>
+      <circle cx="16" cy="17" r="2.4" fill="#2D614A"/>
+      <circle cx="44" cy="17" r="2.4" fill="#2D614A"/>
+    </svg>
+  </div>
+</div>
+
+<div class="butterfly b-sm2" aria-hidden="true">
+  <div class="wings">
+    <svg width="60" height="52" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="30" cy="26" rx="2.2" ry="13" fill="#001E1A"/>
+      <path d="M30 14 C27 7,23 5,21 4" stroke="#001E1A" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M30 14 C33 7,37 5,39 4" stroke="#001E1A" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M29 20 C12 4,2 10,5 22 C7 30,22 28,29 26 Z" fill="#2D614A"/>
+      <path d="M29 28 C16 34,6 44,14 49 C21 52,28 38,29 32 Z" fill="#4A8F73"/>
+      <path d="M31 20 C48 4,58 10,55 22 C53 30,38 28,31 26 Z" fill="#2D614A"/>
+      <path d="M31 28 C44 34,54 44,46 49 C39 52,32 38,31 32 Z" fill="#4A8F73"/>
+      <circle cx="16" cy="17" r="2.4" fill="#9CC7B0"/>
+      <circle cx="44" cy="17" r="2.4" fill="#9CC7B0"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+// Hero word stagger
+document.querySelectorAll('.sustain-hero h1 .word').forEach((w,i)=>{
+  w.style.animationDelay=(0.3+i*0.08)+'s';
+});
+
+// Scroll progress
+const prog=document.getElementById('scrollProgress');
+window.addEventListener('scroll',()=>{
+  prog.style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';
+});
+
+// Reveal
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Hero particles
+const pEl=document.getElementById('particles');
+for(let i=0;i<32;i++){
+  const p=document.createElement('span');
+  p.style.left=Math.random()*100+'%';
+  p.style.animationDuration=(8+Math.random()*14)+'s';
+  p.style.animationDelay=(Math.random()*10)+'s';
+  p.style.width=p.style.height=(2+Math.random()*4)+'px';
+  pEl.appendChild(p);
+}
+
+// ---- CERTIFICATE SLIDER ----
+const track   = document.getElementById('certTrack');
+const cards   = track.querySelectorAll('.cert-card');
+const dotsEl  = document.getElementById('certDots');
+const prevBtn = document.getElementById('certPrev');
+const nextBtn = document.getElementById('certNext');
+let current = 0;
+
+// hide fallback spans when images load
+cards.forEach(c=>{
+  const img=c.querySelector('img');
+  const fb=c.querySelector('span[id^="fb"]');
+  if(img&&fb){
+    if(img.complete&&img.naturalWidth>0){fb.style.display='none';}
+    img.addEventListener('load',()=>{fb.style.display='none';});
+  }
+});
+
+function getVisible(){
+  const w=window.innerWidth;
+  if(w>1000)return 4;
+  if(w>600)return 2;
+  return 1;
+}
+
+// build dots
+function buildDots(){
+  dotsEl.innerHTML='';
+  const pages=Math.ceil(cards.length/getVisible());
+  for(let i=0;i<pages;i++){
+    const d=document.createElement('button');
+    d.className='cert-dot'+(i===current?' active':'');
+    d.setAttribute('aria-label','Go to slide '+(i+1));
+    d.addEventListener('click',()=>goTo(i));
+    dotsEl.appendChild(d);
+  }
+}
+
+function goTo(idx){
+  const visible=getVisible();
+  const pages=Math.ceil(cards.length/visible);
+  current=Math.max(0,Math.min(idx,pages-1));
+  const cardW=cards[0].getBoundingClientRect().width+24;
+  track.style.transform=`translateX(-${current*visible*cardW}px)`;
+  dotsEl.querySelectorAll('.cert-dot').forEach((d,i)=>d.classList.toggle('active',i===current));
+}
+
+prevBtn.addEventListener('click',()=>goTo(current-1));
+nextBtn.addEventListener('click',()=>goTo(current+1));
+
+buildDots();
+window.addEventListener('resize',()=>{current=0;buildDots();goTo(0);});
+
+// Auto-advance slider
+let sliderTimer=setInterval(()=>goTo((current+1)%Math.ceil(cards.length/getVisible())),4000);
+[prevBtn,nextBtn].forEach(b=>b.addEventListener('click',()=>{clearInterval(sliderTimer);sliderTimer=setInterval(()=>goTo((current+1)%Math.ceil(cards.length/getVisible())),4000);}));
+
+// Custom cursor
+const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+(function a(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a)})();
+document.querySelectorAll('a,button,.cert-card,.commit-card,.csr-card,.point-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('hover'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
+});
+
+// 3D tilt on commit cards
+document.querySelectorAll('.commit-card,.cert-card').forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect();
+    c.style.transform=`perspective(900px) rotateX(${(0.5-(e.clientY-r.top)/r.height)*8}deg) rotateY(${((e.clientX-r.left)/r.width-.5)*8}deg) translateY(-8px)`;
+  });
+  c.addEventListener('mouseleave',()=>{c.style.transform='';});
+});
+
+// Magnetic buttons
+document.querySelectorAll('.btn').forEach(b=>{
+  b.addEventListener('mousemove',e=>{
+    const r=b.getBoundingClientRect();
+    b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.22}px)`;
+  });
+  b.addEventListener('mouseleave',()=>{b.style.transform='';});
+});
+
+const toTop=document.getElementById('toTop');
+window.addEventListener('scroll',()=>toTop.classList.toggle('show',window.scrollY>600));
+toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+
+<script>
+// ── Navbar JS ──────────────────────────────────────────────
+(function(){
+  // Scrolled state
+  var nav = document.getElementById('nav');
+  if(nav){
+    window.addEventListener('scroll', function(){
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, {passive:true});
+  }
+
+  // Hamburger / mobile nav
+  var ham = document.getElementById('hamburger');
+  var mob = document.getElementById('mobileNav');
+  var cls = document.getElementById('mobileNavClose');
+  function openMob(){ if(!mob)return; mob.classList.add('open'); mob.removeAttribute('aria-hidden'); document.body.classList.add('nav-open'); if(ham){ham.classList.add('open');ham.setAttribute('aria-expanded','true');} }
+  function closeMob(){ if(!mob)return; mob.classList.remove('open'); mob.setAttribute('aria-hidden','true'); document.body.classList.remove('nav-open'); if(ham){ham.classList.remove('open');ham.setAttribute('aria-expanded','false');} }
+  if(ham) ham.addEventListener('click', function(){ mob && mob.classList.contains('open') ? closeMob() : openMob(); });
+  if(cls) cls.addEventListener('click', closeMob);
+  if(mob) mob.addEventListener('click', function(e){ if(e.target===mob) closeMob(); });
+
+  // Mobile accordion dropdowns
+  document.querySelectorAll('[data-mobile-dd]').forEach(function(btn){
+    // auto-open if current section is active
+    if(btn.classList.contains('active')){
+      btn.closest('li').classList.add('m-open');
+    }
+    btn.addEventListener('click', function(){
+      var li = btn.closest('li');
+      var wasOpen = li.classList.contains('m-open');
+      document.querySelectorAll('.mobile-nav-links > li').forEach(function(l){ l.classList.remove('m-open'); });
+      if(!wasOpen) li.classList.add('m-open');
+    });
+  });
+})();
+</script>
+
+<script>
+/* HITSHI-NAV-JS-v2 */
+(function(){
+  var nav=document.getElementById('nav');
+  if(nav)window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+  var ham=document.getElementById('hamburger'),mob=document.getElementById('mobileNav'),cls=document.getElementById('mobileNavClose');
+  function openMob(){if(!mob)return;mob.classList.add('open');mob.removeAttribute('aria-hidden');document.body.classList.add('nav-open');if(ham){ham.classList.add('open');ham.setAttribute('aria-expanded','true');}}
+  function closeMob(){if(!mob)return;mob.classList.remove('open');mob.setAttribute('aria-hidden','true');document.body.classList.remove('nav-open');if(ham){ham.classList.remove('open');ham.setAttribute('aria-expanded','false');}}
+  if(ham)ham.addEventListener('click',function(){mob&&mob.classList.contains('open')?closeMob():openMob();});
+  if(cls)cls.addEventListener('click',closeMob);
+  if(mob)mob.addEventListener('click',function(e){if(e.target===mob)closeMob();});
+  document.querySelectorAll('.m-dd-btn').forEach(function(btn){
+    var li=btn.closest('li');
+    if(btn.classList.contains('active'))li.classList.add('m-open');
+    btn.addEventListener('click',function(){
+      var wasOpen=li.classList.contains('m-open');
+      document.querySelectorAll('.mobile-nav-links > li').forEach(function(l){l.classList.remove('m-open');});
+      if(!wasOpen)li.classList.add('m-open');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
